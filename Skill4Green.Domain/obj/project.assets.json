@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj",
       "projectName": "Skill4Green.Domain",
-      "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj",
+      "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj",
       "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\obj\\",
+      "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

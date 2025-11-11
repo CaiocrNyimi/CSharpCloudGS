@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj": {}
+    "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.API\\Skill4Green.API.csproj": {
+    "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.API\\Skill4Green.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.API\\Skill4Green.API.csproj",
+        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.API\\Skill4Green.API.csproj",
         "projectName": "Skill4Green.API",
-        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.API\\Skill4Green.API.csproj",
+        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.API\\Skill4Green.API.csproj",
         "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.API\\obj\\",
+        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,14 +32,14 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
-                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj"
+              "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
+                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj"
               },
-              "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
-                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj"
+              "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
+                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj"
               },
-              "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj"
+              "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj"
               }
             }
           }
@@ -162,14 +162,14 @@
         }
       }
     },
-    "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
+    "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj",
+        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj",
         "projectName": "Skill4Green.Application",
-        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj",
+        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj",
         "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\obj\\",
+        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -190,8 +190,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
-                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj"
+              "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
+                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj"
               }
             }
           }
@@ -249,14 +249,14 @@
         }
       }
     },
-    "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
+    "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj",
         "projectName": "Skill4Green.Domain",
-        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj",
+        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj",
         "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\obj\\",
+        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -314,14 +314,14 @@
         }
       }
     },
-    "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj": {
+    "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
         "projectName": "Skill4Green.Infrastructure",
-        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -342,11 +342,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
-                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj"
+              "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
+                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj"
               },
-              "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
-                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj"
+              "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
+                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj"
               }
             }
           }
@@ -402,14 +402,14 @@
         }
       }
     },
-    "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj": {
+    "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj",
         "projectName": "Skill4Green.Tests",
-        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj",
+        "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj",
         "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Tests\\obj\\",
+        "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -430,11 +430,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.API\\Skill4Green.API.csproj": {
-                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.API\\Skill4Green.API.csproj"
+              "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.API\\Skill4Green.API.csproj": {
+                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.API\\Skill4Green.API.csproj"
               },
-              "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
-                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj"
+              "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
+                "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj"
               }
             }
           }

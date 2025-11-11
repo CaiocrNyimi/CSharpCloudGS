@@ -3539,11 +3539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
       "projectName": "Skill4Green.Infrastructure",
-      "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3564,11 +3564,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
-              "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Application\\Skill4Green.Application.csproj"
+            "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj": {
+              "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Application\\Skill4Green.Application.csproj"
             },
-            "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
-              "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj"
+            "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj": {
+              "projectPath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Domain\\Skill4Green.Domain.csproj"
             }
           }
         }

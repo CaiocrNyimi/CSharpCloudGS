@@ -19,7 +19,7 @@ Skill4Green representa o futuro do trabalho ao:
 
 - ASP.NET Core 9;
 - Entity Framework Core;
-- Oracle Database;
+- SQL Server Database;
 - FluentValidation;
 - Swagger + Swashbuckle;
 - OpenTelemetry;

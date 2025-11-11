@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="ad16a997-1370-4824-b9a3-04c19e9b40ae" name="caioc@DESKTOP-SN8LDK1 2025-11-11 18:08:16" runUser="DESKTOP-SN8LDK1\caioc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-11-11T18:08:16.3208917-03:00" queuing="2025-11-11T18:08:16.3208921-03:00" start="2025-11-11T18:08:14.9376342-03:00" finish="2025-11-11T18:08:16.3511689-03:00" />
+  <TestSettings name="default" id="e3cc703f-bae6-482f-b8a3-4ec10a0a832e">
+    <Deployment runDeploymentRoot="caioc_DESKTOP-SN8LDK1_2025-11-11_18_08_16" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="0957cd78-b691-47b9-a64a-340504032d8f" testId="502337a1-9e94-65ca-941d-b7ea8954c1fc" testName="PontuacaoServiceTests.CriarAsync_DeveRetornarDtoCriado" computerName="DESKTOP-SN8LDK1" duration="00:00:00.0066892" startTime="2025-11-11T18:08:16.2350498-03:00" endTime="2025-11-11T18:08:16.2416106-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0957cd78-b691-47b9-a64a-340504032d8f" />
+    <UnitTestResult executionId="b382d0d0-37c6-46d3-a3db-22e18c63916f" testId="4dd82628-57f3-c412-ac71-1df54d7d1d9f" testName="RecompensaServiceTests.CriarAsync_DeveRetornarDtoCriado" computerName="DESKTOP-SN8LDK1" duration="00:00:00.0041694" startTime="2025-11-11T18:08:16.2409759-03:00" endTime="2025-11-11T18:08:16.2451081-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b382d0d0-37c6-46d3-a3db-22e18c63916f" />
+    <UnitTestResult executionId="020740d9-8823-41e6-95bd-88ea9e55d987" testId="b4067c38-0f9b-98a5-aa4c-0486dc37931b" testName="PontuacaoServiceTests.ObterPorIdAsync_DeveRetornarDto" computerName="DESKTOP-SN8LDK1" duration="00:00:00.0088216" startTime="2025-11-11T18:08:16.2267447-03:00" endTime="2025-11-11T18:08:16.2348497-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="020740d9-8823-41e6-95bd-88ea9e55d987" />
+    <UnitTestResult executionId="1fbccc33-804b-4ed0-9391-f1efe37ba33d" testId="eb7a1a27-34ee-8c91-f3f9-0e90fd0a819f" testName="RecompensaServiceTests.TrocarAsync_ComSaldoInsuficiente_DeveLancarExcecao" computerName="DESKTOP-SN8LDK1" duration="00:00:00.1187999" startTime="2025-11-11T18:08:16.1154535-03:00" endTime="2025-11-11T18:08:16.2260389-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1fbccc33-804b-4ed0-9391-f1efe37ba33d" />
+    <UnitTestResult executionId="4f20d02b-563b-4a6e-9286-a93be9707da6" testId="05b3eb4b-d5b1-0f54-273f-855131a62a1b" testName="PontuacaoServiceTests.DeletarAsync_DeveChamarRemover" computerName="DESKTOP-SN8LDK1" duration="00:00:00.0024933" startTime="2025-11-11T18:08:16.2791687-03:00" endTime="2025-11-11T18:08:16.2793785-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4f20d02b-563b-4a6e-9286-a93be9707da6" />
+    <UnitTestResult executionId="3072b961-9200-4154-9b32-e5903e7c40ce" testId="77342523-dc7c-b033-7500-a6def5ac4296" testName="PontuacaoServiceTests.AtualizarAsync_ComIdInvalido_DeveLancarExcecao" computerName="DESKTOP-SN8LDK1" duration="00:00:00.6166327" startTime="2025-11-11T18:08:15.6067024-03:00" endTime="2025-11-11T18:08:16.2259306-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3072b961-9200-4154-9b32-e5903e7c40ce" />
+    <UnitTestResult executionId="20c1a956-dffb-4c63-a880-a9101ee23d11" testId="5a1a3cef-65da-20bf-2d5c-b8361ad4e422" testName="RecompensaServiceTests.AtualizarAsync_ComIdInvalido_DeveLancarExcecao" computerName="DESKTOP-SN8LDK1" duration="00:00:00.0021482" startTime="2025-11-11T18:08:16.2387196-03:00" endTime="2025-11-11T18:08:16.2407586-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="20c1a956-dffb-4c63-a880-a9101ee23d11" />
+    <UnitTestResult executionId="53a0b8cc-6331-478b-8762-e2bb6e8a9a29" testId="d796f8d2-9bb3-a191-2a7a-003dd265661b" testName="RecompensaServiceTests.ObterPorIdAsync_DeveRetornarDto" computerName="DESKTOP-SN8LDK1" duration="00:00:00.0040960" startTime="2025-11-11T18:08:16.2786645-03:00" endTime="2025-11-11T18:08:16.2792335-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="53a0b8cc-6331-478b-8762-e2bb6e8a9a29" />
+    <UnitTestResult executionId="9ffe0636-15ed-4ff4-851b-1621d5b6b1e5" testId="da0dcb3e-824a-8177-9c08-8b709d7441e5" testName="RecompensaServiceTests.DeletarAsync_DeveChamarRemover" computerName="DESKTOP-SN8LDK1" duration="00:00:00.4949370" startTime="2025-11-11T18:08:15.6077320-03:00" endTime="2025-11-11T18:08:16.1069737-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9ffe0636-15ed-4ff4-851b-1621d5b6b1e5" />
+    <UnitTestResult executionId="ff716d21-7b3c-4781-9769-6f068069af52" testId="2a430e47-5350-853b-b601-3dfeba09258e" testName="PontuacaoServiceTests.ListarAsync_DeveRetornarLista" computerName="DESKTOP-SN8LDK1" duration="00:00:00.0057585" startTime="2025-11-11T18:08:16.2418513-03:00" endTime="2025-11-11T18:08:16.2787881-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff716d21-7b3c-4781-9769-6f068069af52" />
+    <UnitTestResult executionId="badd7bd0-05e9-4504-bd9c-2c052f7ecdbe" testId="60f1df71-6385-e635-04db-0f1bbbc386f8" testName="RecompensaServiceTests.ListarAsync_DeveRetornarLista" computerName="DESKTOP-SN8LDK1" duration="00:00:00.0124282" startTime="2025-11-11T18:08:16.2267697-03:00" endTime="2025-11-11T18:08:16.2385026-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="badd7bd0-05e9-4504-bd9c-2c052f7ecdbe" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="PontuacaoServiceTests.AtualizarAsync_ComIdInvalido_DeveLancarExcecao" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="77342523-dc7c-b033-7500-a6def5ac4296">
+      <Execution id="3072b961-9200-4154-9b32-e5903e7c40ce" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PontuacaoServiceTests" name="AtualizarAsync_ComIdInvalido_DeveLancarExcecao" />
+    </UnitTest>
+    <UnitTest name="PontuacaoServiceTests.CriarAsync_DeveRetornarDtoCriado" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="502337a1-9e94-65ca-941d-b7ea8954c1fc">
+      <Execution id="0957cd78-b691-47b9-a64a-340504032d8f" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PontuacaoServiceTests" name="CriarAsync_DeveRetornarDtoCriado" />
+    </UnitTest>
+    <UnitTest name="RecompensaServiceTests.ObterPorIdAsync_DeveRetornarDto" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="d796f8d2-9bb3-a191-2a7a-003dd265661b">
+      <Execution id="53a0b8cc-6331-478b-8762-e2bb6e8a9a29" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RecompensaServiceTests" name="ObterPorIdAsync_DeveRetornarDto" />
+    </UnitTest>
+    <UnitTest name="RecompensaServiceTests.DeletarAsync_DeveChamarRemover" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="da0dcb3e-824a-8177-9c08-8b709d7441e5">
+      <Execution id="9ffe0636-15ed-4ff4-851b-1621d5b6b1e5" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RecompensaServiceTests" name="DeletarAsync_DeveChamarRemover" />
+    </UnitTest>
+    <UnitTest name="RecompensaServiceTests.AtualizarAsync_ComIdInvalido_DeveLancarExcecao" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="5a1a3cef-65da-20bf-2d5c-b8361ad4e422">
+      <Execution id="20c1a956-dffb-4c63-a880-a9101ee23d11" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RecompensaServiceTests" name="AtualizarAsync_ComIdInvalido_DeveLancarExcecao" />
+    </UnitTest>
+    <UnitTest name="PontuacaoServiceTests.ListarAsync_DeveRetornarLista" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="2a430e47-5350-853b-b601-3dfeba09258e">
+      <Execution id="ff716d21-7b3c-4781-9769-6f068069af52" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PontuacaoServiceTests" name="ListarAsync_DeveRetornarLista" />
+    </UnitTest>
+    <UnitTest name="PontuacaoServiceTests.ObterPorIdAsync_DeveRetornarDto" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="b4067c38-0f9b-98a5-aa4c-0486dc37931b">
+      <Execution id="020740d9-8823-41e6-95bd-88ea9e55d987" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PontuacaoServiceTests" name="ObterPorIdAsync_DeveRetornarDto" />
+    </UnitTest>
+    <UnitTest name="PontuacaoServiceTests.DeletarAsync_DeveChamarRemover" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="05b3eb4b-d5b1-0f54-273f-855131a62a1b">
+      <Execution id="4f20d02b-563b-4a6e-9286-a93be9707da6" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="PontuacaoServiceTests" name="DeletarAsync_DeveChamarRemover" />
+    </UnitTest>
+    <UnitTest name="RecompensaServiceTests.ListarAsync_DeveRetornarLista" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="60f1df71-6385-e635-04db-0f1bbbc386f8">
+      <Execution id="badd7bd0-05e9-4504-bd9c-2c052f7ecdbe" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RecompensaServiceTests" name="ListarAsync_DeveRetornarLista" />
+    </UnitTest>
+    <UnitTest name="RecompensaServiceTests.TrocarAsync_ComSaldoInsuficiente_DeveLancarExcecao" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="eb7a1a27-34ee-8c91-f3f9-0e90fd0a819f">
+      <Execution id="1fbccc33-804b-4ed0-9391-f1efe37ba33d" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RecompensaServiceTests" name="TrocarAsync_ComSaldoInsuficiente_DeveLancarExcecao" />
+    </UnitTest>
+    <UnitTest name="RecompensaServiceTests.CriarAsync_DeveRetornarDtoCriado" storage="c:\users\caioc\desktop\csharpcloudgs\skill4green.tests\bin\debug\net9.0\skill4green.tests.dll" id="4dd82628-57f3-c412-ac71-1df54d7d1d9f">
+      <Execution id="b382d0d0-37c6-46d3-a3db-22e18c63916f" />
+      <TestMethod codeBase="C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Tests\bin\Debug\net9.0\Skill4Green.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RecompensaServiceTests" name="CriarAsync_DeveRetornarDtoCriado" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="502337a1-9e94-65ca-941d-b7ea8954c1fc" executionId="0957cd78-b691-47b9-a64a-340504032d8f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4dd82628-57f3-c412-ac71-1df54d7d1d9f" executionId="b382d0d0-37c6-46d3-a3db-22e18c63916f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b4067c38-0f9b-98a5-aa4c-0486dc37931b" executionId="020740d9-8823-41e6-95bd-88ea9e55d987" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eb7a1a27-34ee-8c91-f3f9-0e90fd0a819f" executionId="1fbccc33-804b-4ed0-9391-f1efe37ba33d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="05b3eb4b-d5b1-0f54-273f-855131a62a1b" executionId="4f20d02b-563b-4a6e-9286-a93be9707da6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77342523-dc7c-b033-7500-a6def5ac4296" executionId="3072b961-9200-4154-9b32-e5903e7c40ce" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5a1a3cef-65da-20bf-2d5c-b8361ad4e422" executionId="20c1a956-dffb-4c63-a880-a9101ee23d11" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d796f8d2-9bb3-a191-2a7a-003dd265661b" executionId="53a0b8cc-6331-478b-8762-e2bb6e8a9a29" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da0dcb3e-824a-8177-9c08-8b709d7441e5" executionId="9ffe0636-15ed-4ff4-851b-1621d5b6b1e5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2a430e47-5350-853b-b601-3dfeba09258e" executionId="ff716d21-7b3c-4781-9769-6f068069af52" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60f1df71-6385-e635-04db-0f1bbbc386f8" executionId="badd7bd0-05e9-4504-bd9c-2c052f7ecdbe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Resultados que não estão em uma lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos os resultados carregados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="11" executed="11" passed="11" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.5+1b188a7b0a (64-bit .NET 9.0.8)&#xD;
+[xUnit.net 00:00:00.08]   Discovering: Skill4Green.Tests&#xD;
+[xUnit.net 00:00:00.12]   Discovered:  Skill4Green.Tests&#xD;
+[xUnit.net 00:00:00.14]   Starting:    Skill4Green.Tests&#xD;
+[xUnit.net 00:00:00.83]   Finished:    Skill4Green.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

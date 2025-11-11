@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wrFpQsS3srU=",
+  "dgSpecHash": "WeKICtYHkJI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\caioc\\Desktop\\CSharpCloudGS\\Skill4Green.Infrastructure\\Skill4Green.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caioc\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

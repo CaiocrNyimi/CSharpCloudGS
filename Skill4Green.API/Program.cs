@@ -7,11 +7,20 @@ using Skill4Green.Application.Mappings;
 using Swashbuckle.AspNetCore.Filters;
 using OpenTelemetry.Trace;
 using OpenTelemetry.Resources;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // 🔧 Configurações básicas
 builder.Services.AddControllers();
+builder.Services.AddRouting(options =>
+{
+    options.LowercaseUrls = true;
+    options.LowercaseQueryStrings = false;
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -54,13 +63,38 @@ builder.Services.AddOpenTelemetry()
             .AddConsoleExporter();
     });
 
+// 🧭 Versionamento da API
+builder.Services.AddApiVersioning(options =>
+{
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.ReportApiVersions = true;
+    options.ApiVersionReader = new UrlSegmentApiVersionReader();
+});
+
+builder.Services.AddVersionedApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
+});
+
+builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
+
 var app = builder.Build();
 
 // 🌐 Middlewares
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+
+    var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+    app.UseSwaggerUI(options =>
+    {
+        foreach (var desc in provider.ApiVersionDescriptions)
+        {
+            options.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json", $"Skill4Green API {desc.GroupName}");
+        }
+    });
 }
 
 app.UseAuthorization();

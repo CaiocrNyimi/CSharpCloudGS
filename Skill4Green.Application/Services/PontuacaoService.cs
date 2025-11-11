@@ -36,6 +36,14 @@ public class PontuacaoService : IPontuacaoService
     public async Task<PontuacaoDto> CriarAsync(CreatePontuacaoDto dto)
     {
         _logger.LogInformation("Criando nova pontuação para {Nome}", dto.Nome);
+
+        var existente = await _repo.ObterPorNomeAsync(dto.Nome);
+        if (existente != null)
+        {
+            _logger.LogWarning("Já existe uma pontuação com o nome {Nome}", dto.Nome);
+            throw new InvalidOperationException("O nome informado já está em uso.");
+        }
+
         var entidade = _mapper.Map<Pontuacao>(dto);
         await _repo.AdicionarAsync(entidade);
         _logger.LogInformation("Pontuação criada com sucesso: {@Entidade}", entidade);
@@ -50,6 +58,13 @@ public class PontuacaoService : IPontuacaoService
         {
             _logger.LogWarning("Pontuação ID {Id} não encontrada", id);
             throw new KeyNotFoundException("Pontuação não encontrada");
+        }
+
+        var existente = await _repo.ObterPorNomeAsync(dto.Nome);
+        if (existente != null && existente.Id != id)
+        {
+            _logger.LogWarning("Nome {Nome} já está em uso por outra pontuação", dto.Nome);
+            throw new InvalidOperationException("Já existe outra pontuação com esse nome.");
         }
 
         _mapper.Map(dto, entidade);

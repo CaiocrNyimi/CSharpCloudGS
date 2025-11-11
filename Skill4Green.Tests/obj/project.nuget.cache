@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7LFPqP7UlcU=",
+  "dgSpecHash": "bd54Alpl+ZY=",
   "success": true,
   "projectFilePath": "C:\\Users\\caioc\\Desktop\\CSharpGS\\Skill4Green.Tests\\Skill4Green.Tests.csproj",
   "expectedPackageFiles": [
@@ -9,10 +9,15 @@
     "C:\\Users\\caioc\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\fluentassertions\\8.8.0\\fluentassertions.8.8.0.nupkg.sha512",
+    "C:\\Users\\caioc\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
+    "C:\\Users\\caioc\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.1\\fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
+    "C:\\Users\\caioc\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.11.0\\fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.healthchecks\\2.2.0\\microsoft.aspnetcore.diagnostics.healthchecks.2.2.0.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\microsoft.aspnetcore.mvc.testing\\9.0.10\\microsoft.aspnetcore.mvc.testing.9.0.10.nupkg.sha512",
+    "C:\\Users\\caioc\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.1.0\\microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
+    "C:\\Users\\caioc\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\5.1.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.5.1.0.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.8\\microsoft.aspnetcore.openapi.9.0.8.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\microsoft.aspnetcore.testhost\\9.0.10\\microsoft.aspnetcore.testhost.9.0.10.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",

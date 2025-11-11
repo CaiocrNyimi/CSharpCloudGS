@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Skill4Green.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b3ce59e4d466c760df3ef933017f012149c2486")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0d70ccb5a51b35a4910fbaf4610ef1240eff712")]
 [assembly: System.Reflection.AssemblyProductAttribute("Skill4Green.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Skill4Green.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

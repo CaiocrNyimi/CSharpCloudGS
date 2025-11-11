@@ -9,7 +9,8 @@ using Skill4Green.API.Hateoas;
 namespace Skill4Green.API.Controllers;
 
 [ApiController]
-[Route("api/v1/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[ApiVersion("1.0")]
 public class PontuacoesController : ControllerBase
 {
     private readonly IPontuacaoService _service;
@@ -21,19 +22,19 @@ public class PontuacoesController : ControllerBase
         _hateoas = new PontuacaoHateoasBuilder();
     }
 
-    [HttpGet]
+    [HttpGet(Name = "GetAllPontuacoes")]
     public async Task<ActionResult<IEnumerable<ResourceWrapper<PontuacaoDto>>>> GetAll([FromQuery] int pagina = 1, [FromQuery] int tamanho = 10)
     {
         var result = await _service.ListarAsync(pagina, tamanho);
-        var wrapped = result.Select(p => _hateoas.Build(p));
+        var wrapped = result.Select(p => _hateoas.Build(p, Url));
         return Ok(wrapped);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}", Name = "GetPontuacaoById")]
     public async Task<ActionResult<ResourceWrapper<PontuacaoDto>>> GetById(int id)
     {
         var result = await _service.ObterPorIdAsync(id);
-        return result == null ? NotFound() : Ok(_hateoas.Build(result));
+        return result == null ? NotFound() : Ok(_hateoas.Build(result, Url));
     }
 
     [HttpPost]
@@ -43,7 +44,7 @@ public class PontuacoesController : ControllerBase
     public async Task<ActionResult<ResourceWrapper<PontuacaoDto>>> Create([FromBody] CreatePontuacaoDto dto)
     {
         var created = await _service.CriarAsync(dto);
-        return CreatedAtAction(nameof(GetById), new { id = created.Id }, _hateoas.Build(created));
+        return CreatedAtAction(nameof(GetById), new { id = created.Id }, _hateoas.Build(created, Url));
     }
 
     [HttpPut("{id}")]

@@ -9,7 +9,8 @@ using Skill4Green.API.Hateoas;
 namespace Skill4Green.API.Controllers;
 
 [ApiController]
-[Route("api/v1/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[ApiVersion("1.0")]
 public class RecompensasController : ControllerBase
 {
     private readonly IRecompensaService _service;
@@ -21,19 +22,19 @@ public class RecompensasController : ControllerBase
         _hateoas = new RecompensaHateoasBuilder();
     }
 
-    [HttpGet]
+    [HttpGet(Name = "GetAllRecompensas")]
     public async Task<ActionResult<IEnumerable<ResourceWrapper<RecompensaDto>>>> GetAll()
     {
         var result = await _service.ListarAsync();
-        var wrapped = result.Select(r => _hateoas.Build(r));
+        var wrapped = result.Select(r => _hateoas.Build(r, Url));
         return Ok(wrapped);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}", Name = "GetRecompensaById")]
     public async Task<ActionResult<ResourceWrapper<RecompensaDto>>> GetById(int id)
     {
         var result = await _service.ObterPorIdAsync(id);
-        return result == null ? NotFound() : Ok(_hateoas.Build(result));
+        return result == null ? NotFound() : Ok(_hateoas.Build(result, Url));
     }
 
     [HttpPost]
@@ -43,7 +44,7 @@ public class RecompensasController : ControllerBase
     public async Task<ActionResult<ResourceWrapper<RecompensaDto>>> Create([FromBody] CreateRecompensaDto dto)
     {
         var created = await _service.CriarAsync(dto);
-        return CreatedAtAction(nameof(GetById), new { id = created.Id }, _hateoas.Build(created));
+        return CreatedAtAction(nameof(GetById), new { id = created.Id }, _hateoas.Build(created, Url));
     }
 
     [HttpPut("{id}")]

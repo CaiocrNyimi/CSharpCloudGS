@@ -1,0 +1,6 @@
+@Skill4Green.API_HostAddress = http://localhost:5005
+
+GET {{Skill4Green.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

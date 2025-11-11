@@ -1,55 +1,95 @@
 using Xunit;
 using Moq;
 using AutoMapper;
+using Microsoft.Extensions.Logging;
 using Skill4Green.Application.Services;
-using Skill4Green.Application.DTOs;
 using Skill4Green.Application.Interfaces;
 using Skill4Green.Domain.Entities;
-
-namespace Skill4Green.Tests.Services;
+using Skill4Green.Application.DTOs;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 public class RecompensaServiceTests
 {
-    [Fact]
-    public async Task TrocarAsync_DeveReduzirEcoCoins_QuandoSaldoSuficiente()
+    private readonly Mock<IRecompensaRepository> _recompensaRepo = new();
+    private readonly Mock<IPontuacaoRepository> _pontuacaoRepo = new();
+    private readonly IMapper _mapper;
+    private readonly RecompensaService _service;
+
+    public RecompensaServiceTests()
     {
-        var recompensa = new Recompensa { Id = 1, Nome = "Voucher", CustoEcoCoins = 10 };
-        var pontuacao = new Pontuacao { Id = 1, ColaboradorId = "abc123", EcoCoins = 20 };
+        var config = new MapperConfiguration(cfg =>
+        {
+            cfg.CreateMap<Recompensa, RecompensaDto>();
+            cfg.CreateMap<CreateRecompensaDto, Recompensa>();
+            cfg.CreateMap<UpdateRecompensaDto, Recompensa>();
+        });
 
-        var mockRecompensaRepo = new Mock<IRecompensaRepository>();
-        mockRecompensaRepo.Setup(r => r.ObterPorIdAsync(1)).ReturnsAsync(recompensa);
-
-        var mockPontuacaoRepo = new Mock<IPontuacaoRepository>();
-        mockPontuacaoRepo.Setup(p => p.ObterPorColaboradorIdAsync("abc123")).ReturnsAsync(pontuacao);
-        mockPontuacaoRepo.Setup(p => p.AtualizarAsync(It.IsAny<Pontuacao>())).Returns(Task.CompletedTask);
-
-        var mockMapper = new Mock<IMapper>();
-
-        var service = new RecompensaService(mockRecompensaRepo.Object, mockPontuacaoRepo.Object, mockMapper.Object);
-        var resultado = await service.TrocarAsync("abc123", 1);
-
-        Assert.True(resultado);
-        Assert.Equal(10, pontuacao.EcoCoins);
+        _mapper = config.CreateMapper();
+        _service = new RecompensaService(_recompensaRepo.Object, _pontuacaoRepo.Object, _mapper, Mock.Of<ILogger<RecompensaService>>());
     }
 
     [Fact]
-    public async Task TrocarAsync_DeveRetornarFalse_QuandoSaldoInsuficiente()
+    public async Task ListarAsync_DeveRetornarLista()
     {
-        var recompensa = new Recompensa { Id = 1, Nome = "Voucher", CustoEcoCoins = 50 };
-        var pontuacao = new Pontuacao { Id = 1, ColaboradorId = "abc123", EcoCoins = 20 };
+        _recompensaRepo.Setup(r => r.ListarAsync())
+            .ReturnsAsync(new List<Recompensa> { new() { Id = 1, Nome = "Copo", CustoEcoCoins = 10 } });
 
-        var mockRecompensaRepo = new Mock<IRecompensaRepository>();
-        mockRecompensaRepo.Setup(r => r.ObterPorIdAsync(1)).ReturnsAsync(recompensa);
+        var resultado = await _service.ListarAsync();
 
-        var mockPontuacaoRepo = new Mock<IPontuacaoRepository>();
-        mockPontuacaoRepo.Setup(p => p.ObterPorColaboradorIdAsync("abc123")).ReturnsAsync(pontuacao);
+        Assert.Single(resultado);
+        Assert.Equal("Copo", resultado.First().Nome);
+    }
 
-        var mockMapper = new Mock<IMapper>();
+    [Fact]
+    public async Task ObterPorIdAsync_DeveRetornarDto()
+    {
+        _recompensaRepo.Setup(r => r.ObterPorIdAsync(1))
+            .ReturnsAsync(new Recompensa { Id = 1, Nome = "Caneca" });
 
-        var service = new RecompensaService(mockRecompensaRepo.Object, mockPontuacaoRepo.Object, mockMapper.Object);
-        var resultado = await service.TrocarAsync("abc123", 1);
+        var resultado = await _service.ObterPorIdAsync(1);
 
-        Assert.False(resultado);
-        Assert.Equal(20, pontuacao.EcoCoins);
+        Assert.NotNull(resultado);
+        Assert.Equal("Caneca", resultado?.Nome);
+    }
+
+    [Fact]
+    public async Task CriarAsync_DeveRetornarDtoCriado()
+    {
+        var dto = new CreateRecompensaDto { Nome = "Squeeze", CustoEcoCoins = 20 };
+
+        var resultado = await _service.CriarAsync(dto);
+
+        Assert.Equal("Squeeze", resultado.Nome);
+        Assert.Equal(20, resultado.CustoEcoCoins);
+    }
+
+    [Fact]
+    public async Task TrocarAsync_ComSaldoInsuficiente_DeveLancarExcecao()
+    {
+        _recompensaRepo.Setup(r => r.ObterPorIdAsync(1))
+            .ReturnsAsync(new Recompensa { Id = 1, Nome = "Copo", CustoEcoCoins = 100 });
+
+        _pontuacaoRepo.Setup(r => r.ObterPorNomeAsync("Caio"))
+            .ReturnsAsync(new Pontuacao { Nome = "Caio", EcoCoins = 50 });
+
+        await Assert.ThrowsAsync<InvalidOperationException>(() =>
+            _service.TrocarAsync("Caio", 1));
+    }
+
+    [Fact]
+    public async Task AtualizarAsync_ComIdInvalido_DeveLancarExcecao()
+    {
+        _recompensaRepo.Setup(r => r.ObterPorIdAsync(99)).ReturnsAsync((Recompensa?)null);
+
+        await Assert.ThrowsAsync<KeyNotFoundException>(() =>
+            _service.AtualizarAsync(99, new UpdateRecompensaDto()));
+    }
+
+    [Fact]
+    public async Task DeletarAsync_DeveChamarRemover()
+    {
+        await _service.DeletarAsync(1);
+        _recompensaRepo.Verify(r => r.RemoverAsync(1), Times.Once);
     }
 }

@@ -5,6 +5,8 @@ using Skill4Green.Infrastructure.Data;
 using Skill4Green.Infrastructure.Repositories;
 using Skill4Green.Application.Mappings;
 using Swashbuckle.AspNetCore.Filters;
+using OpenTelemetry.Trace;
+using OpenTelemetry.Resources;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
     options.EnableAnnotations();
-    options.ExampleFilters(); // ✅ ativa suporte a exemplos
+    options.ExampleFilters();
 
     var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
@@ -37,6 +39,21 @@ builder.Services.AddScoped<IRecompensaRepository, RecompensaRepository>();
 // 📦 Exemplos para Swagger
 builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
 
+// 🩺 Health Check
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<Skill4GreenDbContext>("Banco Oracle");
+
+// 🔍 Tracing com OpenTelemetry
+builder.Services.AddOpenTelemetry()
+    .WithTracing(tracerProviderBuilder =>
+    {
+        tracerProviderBuilder
+            .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("Skill4Green.API"))
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddConsoleExporter();
+    });
+
 var app = builder.Build();
 
 // 🌐 Middlewares
@@ -48,5 +65,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 app.MapControllers();
+
+// 🩺 Endpoint de Health Check
+app.MapHealthChecks("/health");
 
 app.Run();

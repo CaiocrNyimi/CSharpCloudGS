@@ -9,3 +9,4 @@ C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Domain\obj\Debug\net9.0\Skill4Green.
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Domain\obj\Debug\net9.0\refint\Skill4Green.Domain.dll
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Domain\obj\Debug\net9.0\Skill4Green.Domain.pdb
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Domain\obj\Debug\net9.0\ref\Skill4Green.Domain.dll
+C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Domain\obj\Debug\net9.0\Skill4Green.Domain.sourcelink.json

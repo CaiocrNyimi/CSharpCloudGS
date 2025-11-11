@@ -4,6 +4,7 @@ using Skill4Green.Application.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
 using Skill4Green.API.Examples;
+using Skill4Green.API.Hateoas;
 
 namespace Skill4Green.API.Controllers;
 
@@ -12,34 +13,37 @@ namespace Skill4Green.API.Controllers;
 public class PontuacoesController : ControllerBase
 {
     private readonly IPontuacaoService _service;
+    private readonly PontuacaoHateoasBuilder _hateoas;
 
     public PontuacoesController(IPontuacaoService service)
     {
         _service = service;
+        _hateoas = new PontuacaoHateoasBuilder();
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<PontuacaoDto>>> GetAll([FromQuery] int pagina = 1, [FromQuery] int tamanho = 10)
+    public async Task<ActionResult<IEnumerable<ResourceWrapper<PontuacaoDto>>>> GetAll([FromQuery] int pagina = 1, [FromQuery] int tamanho = 10)
     {
         var result = await _service.ListarAsync(pagina, tamanho);
-        return Ok(result);
+        var wrapped = result.Select(p => _hateoas.Build(p));
+        return Ok(wrapped);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<PontuacaoDto>> GetById(int id)
+    public async Task<ActionResult<ResourceWrapper<PontuacaoDto>>> GetById(int id)
     {
         var result = await _service.ObterPorIdAsync(id);
-        return result == null ? NotFound() : Ok(result);
+        return result == null ? NotFound() : Ok(_hateoas.Build(result));
     }
 
     [HttpPost]
     [SwaggerRequestExample(typeof(CreatePontuacaoDto), typeof(CreatePontuacaoDtoExample))]
-    [ProducesResponseType(typeof(PontuacaoDto), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ResourceWrapper<PontuacaoDto>), StatusCodes.Status201Created)]
     [Consumes("application/json")]
-    public async Task<ActionResult<PontuacaoDto>> Create([FromBody] CreatePontuacaoDto dto)
+    public async Task<ActionResult<ResourceWrapper<PontuacaoDto>>> Create([FromBody] CreatePontuacaoDto dto)
     {
         var created = await _service.CriarAsync(dto);
-        return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+        return CreatedAtAction(nameof(GetById), new { id = created.Id }, _hateoas.Build(created));
     }
 
     [HttpPut("{id}")]

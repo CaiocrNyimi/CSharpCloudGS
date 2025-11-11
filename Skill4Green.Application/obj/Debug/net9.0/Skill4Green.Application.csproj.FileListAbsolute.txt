@@ -13,3 +13,4 @@ C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Application\obj\Debug\net9.0\Skill4G
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Application\obj\Debug\net9.0\refint\Skill4Green.Application.dll
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Application\obj\Debug\net9.0\Skill4Green.Application.pdb
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Application\obj\Debug\net9.0\ref\Skill4Green.Application.dll
+C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Application\obj\Debug\net9.0\Skill4Green.Application.sourcelink.json

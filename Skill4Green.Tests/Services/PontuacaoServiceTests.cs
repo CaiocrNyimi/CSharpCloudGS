@@ -1,51 +1,81 @@
 ﻿using Xunit;
 using Moq;
 using AutoMapper;
+using Microsoft.Extensions.Logging;
 using Skill4Green.Application.Services;
-using Skill4Green.Application.DTOs;
 using Skill4Green.Application.Interfaces;
 using Skill4Green.Domain.Entities;
-
-namespace Skill4Green.Tests.Services;
+using Skill4Green.Application.DTOs;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 public class PontuacaoServiceTests
 {
-    [Fact]
-    public async Task CriarAsync_DeveRetornarDtoComEcoCoins()
+    private readonly Mock<IPontuacaoRepository> _repoMock = new();
+    private readonly IMapper _mapper;
+    private readonly PontuacaoService _service;
+
+    public PontuacaoServiceTests()
     {
-        var dto = new PontuacaoDto { ColaboradorId = "abc123", EcoCoins = 10, NivelVerde = 2 };
-        var entidade = new Pontuacao { ColaboradorId = "abc123", EcoCoins = 10, NivelVerde = 2 };
+        var config = new MapperConfiguration(cfg =>
+        {
+            cfg.CreateMap<Pontuacao, PontuacaoDto>();
+            cfg.CreateMap<CreatePontuacaoDto, Pontuacao>();
+            cfg.CreateMap<UpdatePontuacaoDto, Pontuacao>();
+        });
 
-        var mockRepo = new Mock<IPontuacaoRepository>();
-        mockRepo.Setup(r => r.AdicionarAsync(It.IsAny<Pontuacao>())).Returns(Task.CompletedTask);
-
-        var mockMapper = new Mock<IMapper>();
-        mockMapper.Setup(m => m.Map<Pontuacao>(dto)).Returns(entidade);
-        mockMapper.Setup(m => m.Map<PontuacaoDto>(entidade)).Returns(dto);
-
-        var service = new PontuacaoService(mockRepo.Object, mockMapper.Object);
-        var result = await service.CriarAsync(dto);
-
-        Assert.Equal(10, result.EcoCoins);
-        Assert.Equal("abc123", result.ColaboradorId);
+        _mapper = config.CreateMapper();
+        _service = new PontuacaoService(_repoMock.Object, _mapper, Mock.Of<ILogger<PontuacaoService>>());
     }
 
     [Fact]
-    public async Task AtualizarAsync_DeveAlterarEcoCoinsENivel()
+    public async Task ListarAsync_DeveRetornarLista()
     {
-        var dto = new PontuacaoDto { ColaboradorId = "abc123", EcoCoins = 20, NivelVerde = 3 };
-        var entidade = new Pontuacao { Id = 1, ColaboradorId = "abc123", EcoCoins = 10, NivelVerde = 1 };
+        _repoMock.Setup(r => r.ListarPaginadoAsync(1, 10))
+                 .ReturnsAsync(new List<Pontuacao> { new() { Id = 1, Nome = "Caio", EcoCoins = 100 } });
 
-        var mockRepo = new Mock<IPontuacaoRepository>();
-        mockRepo.Setup(r => r.ObterPorIdAsync(1)).ReturnsAsync(entidade);
-        mockRepo.Setup(r => r.AtualizarAsync(It.IsAny<Pontuacao>())).Returns(Task.CompletedTask);
+        var resultado = await _service.ListarAsync(1, 10);
 
-        var mockMapper = new Mock<IMapper>();
+        Assert.Single(resultado);
+        Assert.Equal("Caio", resultado.First().Nome);
+    }
 
-        var service = new PontuacaoService(mockRepo.Object, mockMapper.Object);
-        await service.AtualizarAsync(1, dto);
+    [Fact]
+    public async Task ObterPorIdAsync_DeveRetornarDto()
+    {
+        _repoMock.Setup(r => r.ObterPorIdAsync(1))
+                 .ReturnsAsync(new Pontuacao { Id = 1, Nome = "Caio" });
 
-        Assert.Equal(20, entidade.EcoCoins);
-        Assert.Equal(3, entidade.NivelVerde);
+        var resultado = await _service.ObterPorIdAsync(1);
+
+        Assert.NotNull(resultado);
+        Assert.Equal("Caio", resultado?.Nome);
+    }
+
+    [Fact]
+    public async Task CriarAsync_DeveRetornarDtoCriado()
+    {
+        var dto = new CreatePontuacaoDto { Nome = "Novo", EcoCoins = 50, NivelVerde = 1 };
+
+        var resultado = await _service.CriarAsync(dto);
+
+        Assert.Equal("Novo", resultado.Nome);
+        Assert.Equal(50, resultado.EcoCoins);
+    }
+
+    [Fact]
+    public async Task AtualizarAsync_ComIdInvalido_DeveLancarExcecao()
+    {
+        _repoMock.Setup(r => r.ObterPorIdAsync(99)).ReturnsAsync((Pontuacao?)null);
+
+        await Assert.ThrowsAsync<KeyNotFoundException>(() =>
+            _service.AtualizarAsync(99, new UpdatePontuacaoDto()));
+    }
+
+    [Fact]
+    public async Task DeletarAsync_DeveChamarRemover()
+    {
+        await _service.DeletarAsync(1);
+        _repoMock.Verify(r => r.RemoverAsync(1), Times.Once);
     }
 }

@@ -175,3 +175,4 @@ C:\Users\caioc\Desktop\CSharpGS\Skill4Green.API\bin\Debug\net9.0\Swashbuckle.Asp
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.API\bin\Debug\net9.0\Scrutor.dll
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+C:\Users\caioc\Desktop\CSharpGS\Skill4Green.API\obj\Debug\net9.0\Skill4Green.API.sourcelink.json

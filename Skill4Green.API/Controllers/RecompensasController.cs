@@ -4,6 +4,7 @@ using Skill4Green.Application.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
 using Skill4Green.API.Examples;
+using Skill4Green.API.Hateoas;
 
 namespace Skill4Green.API.Controllers;
 
@@ -12,34 +13,37 @@ namespace Skill4Green.API.Controllers;
 public class RecompensasController : ControllerBase
 {
     private readonly IRecompensaService _service;
+    private readonly RecompensaHateoasBuilder _hateoas;
 
     public RecompensasController(IRecompensaService service)
     {
         _service = service;
+        _hateoas = new RecompensaHateoasBuilder();
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<RecompensaDto>>> GetAll()
+    public async Task<ActionResult<IEnumerable<ResourceWrapper<RecompensaDto>>>> GetAll()
     {
         var result = await _service.ListarAsync();
-        return Ok(result);
+        var wrapped = result.Select(r => _hateoas.Build(r));
+        return Ok(wrapped);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<RecompensaDto>> GetById(int id)
+    public async Task<ActionResult<ResourceWrapper<RecompensaDto>>> GetById(int id)
     {
         var result = await _service.ObterPorIdAsync(id);
-        return result == null ? NotFound() : Ok(result);
+        return result == null ? NotFound() : Ok(_hateoas.Build(result));
     }
 
     [HttpPost]
     [SwaggerRequestExample(typeof(CreateRecompensaDto), typeof(CreateRecompensaDtoExample))]
-    [ProducesResponseType(typeof(RecompensaDto), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ResourceWrapper<RecompensaDto>), StatusCodes.Status201Created)]
     [Consumes("application/json")]
-    public async Task<ActionResult<RecompensaDto>> Create([FromBody] CreateRecompensaDto dto)
+    public async Task<ActionResult<ResourceWrapper<RecompensaDto>>> Create([FromBody] CreateRecompensaDto dto)
     {
         var created = await _service.CriarAsync(dto);
-        return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+        return CreatedAtAction(nameof(GetById), new { id = created.Id }, _hateoas.Build(created));
     }
 
     [HttpPut("{id}")]
@@ -66,18 +70,7 @@ public class RecompensasController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Trocar([FromQuery] string nome, [FromQuery] int recompensaId)
     {
-        try
-        {
-            var mensagem = await _service.TrocarAsync(nome, recompensaId);
-            return Ok(mensagem);
-        }
-        catch (ArgumentException ex)
-        {
-            return NotFound(ex.Message);
-        }
-        catch (InvalidOperationException ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        var mensagem = await _service.TrocarAsync(nome, recompensaId);
+        return Ok(mensagem);
     }
 }

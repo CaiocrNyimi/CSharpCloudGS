@@ -17,3 +17,4 @@ C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Infrastructure\obj\Debug\net9.0\Skil
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Infrastructure\obj\Debug\net9.0\ref\Skill4Green.Infrastructure.dll
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Infrastructure\bin\Debug\net9.0\Skill4Green.Infrastructure.runtimeconfig.json
 C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Infrastructure\obj\Debug\net9.0\Skill4Green.Infrastructure.genruntimeconfig.cache
+C:\Users\caioc\Desktop\CSharpGS\Skill4Green.Infrastructure\obj\Debug\net9.0\Skill4Green.Infrastructure.sourcelink.json

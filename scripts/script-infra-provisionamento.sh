@@ -1,30 +1,25 @@
 #!/bin/bash
 
 # ============================
-# CONFIGURAÇÕES GERAIS
+# CONFIGURAÇÕES FIXAS
 # ============================
 RG="rg-azurewebapp"
 LOCATION="brazilsouth"
-
-# ============================
-# CONFIGURAÇÕES DO BANCO SQL
-# ============================
-SQL_SERVER="sqlserver-rm5556331"
-SQL_ADMIN="hzlnca"
-SQL_PASSWORD="SenhaTop123455@"
-SQL_DB="webappdb"
-
-# ============================
-# CONFIGURAÇÕES DO WEB APP
-# ============================
 APP_PLAN="plan-skill4green"
-WEBAPP_NAME="app-skill4green"
 RUNTIME="DOTNETCORE:9.0"
 
 # ============================
-# LOGIN E GRUPO DE RECURSOS
+# CONFIGURAÇÕES SENSÍVEIS
 # ============================
-az login
+SQL_SERVER="${SQL_SERVER:?Variável de ambiente SQL_SERVER não definida}"
+SQL_ADMIN="${SQL_ADMIN:?Variável de ambiente SQL_ADMIN não definida}"
+SQL_PASSWORD="${SQL_PASSWORD:?Variável de ambiente SQL_PASSWORD não definida}"
+SQL_DB="${SQL_DB:?Variável de ambiente SQL_DB não definida}"
+WEBAPP_NAME="${WEBAPP_NAME:?Variável de ambiente WEBAPP_NAME não definida}"
+
+# ============================
+# GRUPO DE RECURSOS
+# ============================
 az group create --name $RG --location $LOCATION
 
 # ============================
@@ -69,4 +64,7 @@ az webapp create \
   --name $WEBAPP_NAME \
   --runtime "$RUNTIME"
 
-echo "✅ Infraestrutura provisionada com sucesso!"
+# ============================
+# EXECUTAR SCRIPT SQL
+# ============================
+sqlcmd -S "$SQL_SERVER.database.windows.net" -U "$SQL_ADMIN" -P "$SQL_PASSWORD" -d "$SQL_DB" -i "scripts/script-bd.sql"

@@ -94,6 +94,10 @@
               "target": "Package",
               "version": "[9.0.10, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
             "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.10, )"
@@ -117,10 +121,6 @@
             "OpenTelemetry.Instrumentation.Http": {
               "target": "Package",
               "version": "[1.13.0, )"
-            },
-            "Oracle.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[9.23.26000, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",

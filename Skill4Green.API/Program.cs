@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION");
 
 // 🔧 Configurações básicas
 builder.Services.AddControllers();
@@ -32,9 +33,9 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(xmlPath);
 });
 
-// 🔌 Banco de dados Oracle
+// 🔌 Banco de dados SQL Server
 builder.Services.AddDbContext<Skill4GreenDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(connectionString));
 
 // 🧩 AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
@@ -50,7 +51,7 @@ builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
 
 // 🩺 Health Check
 builder.Services.AddHealthChecks()
-    .AddDbContextCheck<Skill4GreenDbContext>("Banco Oracle");
+    .AddDbContextCheck<Skill4GreenDbContext>("Banco SQL Server");
 
 // 🔍 Tracing com OpenTelemetry
 builder.Services.AddOpenTelemetry()

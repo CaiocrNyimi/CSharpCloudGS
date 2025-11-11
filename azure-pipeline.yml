@@ -3,54 +3,64 @@ trigger:
     include:
       - main
 
-pool:
-  vmImage: 'windows-latest'
-
 variables:
   buildConfiguration: 'Release'
 
-steps:
-# Instala o SDK do .NET 9
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '9.x'
+jobs:
+# JOB 1: Provisionar Infraestrutura
+- job: ProvisionInfra
+  displayName: 'Provisionar Infraestrutura'
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'MyAzureSubscription'
+      scriptType: 'bash'
+      scriptLocation: 'scriptPath'
+      scriptPath: 'scripts/script-infra-provisionamento.sh'
 
-# Restaura os pacotes NuGet
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
+# JOB 2: Build + Testes + Artefato
+- job: BuildAndTest
+  displayName: 'Build and Test'
+  dependsOn: ProvisionInfra
+  pool:
+    vmImage: 'windows-latest'
+  steps:
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '9.x'
 
-# Compila o projeto
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    arguments: '--configuration $(buildConfiguration)'
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'restore'
+      projects: '**/*.csproj'
 
-# Executa os testes com xUnit e gera arquivos .trx
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: '**/*Tests.csproj'
-    arguments: '--configuration $(buildConfiguration) --logger trx'
-    publishTestResults: true
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'build'
+      arguments: '--configuration $(buildConfiguration)'
 
-# Publica os resultados dos testes
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'VSTest'
-    testResultsFiles: '**/*.trx'
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'test'
+      projects: '**/*Tests.csproj'
+      arguments: '--configuration $(buildConfiguration) --logger trx'
+      publishTestResults: true
 
-# Publica os arquivos compilados como artefato
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'VSTest'
+      testResultsFiles: '**/*.trx'
 
-# Publica o artefato para ser usado na Release
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'drop'
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'publish'
+      publishWebProjects: true
+      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'app'

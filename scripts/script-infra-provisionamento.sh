@@ -6,7 +6,7 @@
 RG="rg-azurewebapp"
 LOCATION="brazilsouth"
 APP_PLAN="plan-skill4green"
-RUNTIME="DOTNETCORE|9.0"
+RUNTIME="dotnet:9"
 
 # ============================
 # CONFIGURAÇÕES SENSÍVEIS
@@ -16,6 +16,18 @@ SQL_ADMIN="${SQL_ADMIN:?Variável de ambiente SQL_ADMIN não definida}"
 SQL_PASSWORD="${SQL_PASSWORD:?Variável de ambiente SQL_PASSWORD não definida}"
 SQL_DB="${SQL_DB:?Variável de ambiente SQL_DB não definida}"
 WEBAPP_NAME="${WEBAPP_NAME:?Variável de ambiente WEBAPP_NAME não definida}"
+
+# ============================
+# INSTALAR SQLCMD NO AGENTE
+# ============================
+echo "Instalando sqlcmd no agente..."
+
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+curl -sSL https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -y mssql-tools unixodbc-dev
+
+export PATH="$PATH:/opt/mssql-tools/bin"
 
 # ============================
 # GRUPO DE RECURSOS
@@ -66,4 +78,10 @@ az webapp create \
 # ============================
 # EXECUTAR SCRIPT SQL
 # ============================
-sqlcmd -S "$SQL_SERVER.database.windows.net" -U "$SQL_ADMIN" -P "$SQL_PASSWORD" -d "$SQL_DB" -i "scripts/script-bd.sql"
+echo "Executando script SQL no banco..."
+
+sqlcmd -S "$SQL_SERVER.database.windows.net" \
+  -U "$SQL_ADMIN" \
+  -P "$SQL_PASSWORD" \
+  -d "$SQL_DB" \
+  -i "scripts/script-bd.sql"

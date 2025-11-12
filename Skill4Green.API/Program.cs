@@ -81,22 +81,22 @@ builder.Services.AddVersionedApiExplorer(options =>
 
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+builder.WebHost.UseUrls($"http://*:{port}");
+
 var app = builder.Build();
 
 // 🌐 Middlewares
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
+app.UseSwagger();
 
-    var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
-    app.UseSwaggerUI(options =>
+var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+app.UseSwaggerUI(options =>
+{
+    foreach (var desc in provider.ApiVersionDescriptions)
     {
-        foreach (var desc in provider.ApiVersionDescriptions)
-        {
-            options.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json", $"Skill4Green API {desc.GroupName}");
-        }
-    });
-}
+        options.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json", $"Skill4Green API {desc.GroupName}");
+    }
+});
 
 app.UseAuthorization();
 app.MapControllers();

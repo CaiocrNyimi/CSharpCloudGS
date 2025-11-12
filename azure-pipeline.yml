@@ -7,60 +7,77 @@ variables:
   buildConfiguration: 'Release'
 
 jobs:
-# JOB 1: Provisionar Infraestrutura
+# JOB 1: Provisionar Infraestrutura via Azure CLI
 - job: ProvisionInfra
   displayName: 'Provisionar Infraestrutura'
   pool:
     vmImage: 'ubuntu-latest'
   steps:
   - task: AzureCLI@2
+    displayName: 'Executar script de provisionamento'
     inputs:
       azureSubscription: 'MyAzureSubscription'
       scriptType: 'bash'
       scriptLocation: 'scriptPath'
       scriptPath: 'scripts/script-infra-provisionamento.sh'
+    env:
+      SQL_SERVER: $(SQL_SERVER)
+      SQL_ADMIN: $(SQL_ADMIN)
+      SQL_PASSWORD: $(SQL_PASSWORD)
+      SQL_DB: $(SQL_DB)
+      WEBAPP_NAME: $(WEBAPP_NAME)
 
-# JOB 2: Build + Testes + Artefato
+# JOB 2: Build, Testes e Artefato
 - job: BuildAndTest
-  displayName: 'Build and Test'
+  displayName: 'Build, Testes e Artefato'
   dependsOn: ProvisionInfra
   pool:
     vmImage: 'windows-latest'
   steps:
   - task: UseDotNet@2
+    displayName: 'Instalar .NET SDK'
     inputs:
       packageType: 'sdk'
       version: '9.x'
 
   - task: DotNetCoreCLI@2
+    displayName: 'Restore'
     inputs:
       command: 'restore'
       projects: '**/*.csproj'
 
   - task: DotNetCoreCLI@2
+    displayName: 'Build'
     inputs:
       command: 'build'
       arguments: '--configuration $(buildConfiguration)'
 
   - task: DotNetCoreCLI@2
+    displayName: 'Test'
     inputs:
       command: 'test'
       projects: '**/*Tests.csproj'
-      arguments: '--configuration $(buildConfiguration) --logger trx'
+      arguments: '--configuration $(buildConfiguration) --logger "trx;LogFileName=test-results.trx"'
       publishTestResults: true
 
   - task: PublishTestResults@2
+    displayName: 'Publicar Resultados de Teste'
     inputs:
       testResultsFormat: 'VSTest'
       testResultsFiles: '**/*.trx'
+      failTaskOnFailedTests: true
 
   - task: DotNetCoreCLI@2
+    displayName: 'Publish'
     inputs:
       command: 'publish'
       publishWebProjects: true
       arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    env:
+      DB_CONNECTION: $(DB_CONNECTION)
 
   - task: PublishBuildArtifacts@1
+    displayName: 'Publicar Artefato'
     inputs:
       pathToPublish: '$(Build.ArtifactStagingDirectory)'
       artifactName: 'app'

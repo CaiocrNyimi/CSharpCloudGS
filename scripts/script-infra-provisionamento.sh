@@ -6,7 +6,7 @@
 RG="rg-azurewebapp"
 LOCATION="brazilsouth"
 APP_PLAN="plan-skill4green"
-RUNTIME="DOTNETCORE:9.0"
+RUNTIME="DOTNETCORE|9.0"
 
 # ============================
 # CONFIGURAÇÕES SENSÍVEIS
@@ -55,8 +55,7 @@ az appservice plan create \
   --name $APP_PLAN \
   --resource-group $RG \
   --location $LOCATION \
-  --sku F1 \
-  --is-linux
+  --sku F1
 
 az webapp create \
   --resource-group $RG \

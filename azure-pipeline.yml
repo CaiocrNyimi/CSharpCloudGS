@@ -7,14 +7,14 @@ variables:
   buildConfiguration: 'Release'
 
 jobs:
-# JOB 1: Provisionar Infraestrutura via Azure CLI
-- job: ProvisionInfra
-  displayName: 'Provisionar Infraestrutura'
+# JOB 1: Provisiona recursos Azure (RG, SQL Server, DB, WebApp)
+- job: ProvisionarInfraSkill4Green
+  displayName: 'Provisionar Infraestrutura Skill4Green'
   pool:
     vmImage: 'ubuntu-latest'
   steps:
   - task: AzureCLI@2
-    displayName: 'Executar script de provisionamento'
+    displayName: 'Provisionar Web App e Database atualizado na nuvem'
     inputs:
       azureSubscription: 'MyAzureSubscription'
       scriptType: 'bash'
@@ -27,10 +27,10 @@ jobs:
       SQL_DB: $(SQL_DB)
       WEBAPP_NAME: $(WEBAPP_NAME)
 
-# JOB 2: Build, Testes e Artefato
-- job: BuildAndTest
-  displayName: 'Build, Testes e Artefato'
-  dependsOn: ProvisionInfra
+# JOB 2: Compila, testa e gera artefato da Skill4Green API
+- job: BuildTestPublicarSkill4Green
+  displayName: 'Build, Test e Publish do Projeto Skill4Green'
+  dependsOn: ProvisionarInfraSkill4Green
   pool:
     vmImage: 'windows-latest'
   steps:
@@ -41,19 +41,19 @@ jobs:
       version: '9.x'
 
   - task: DotNetCoreCLI@2
-    displayName: 'Restore'
+    displayName: 'Restaurar dependências do projeto'
     inputs:
       command: 'restore'
       projects: '**/*.csproj'
 
   - task: DotNetCoreCLI@2
-    displayName: 'Build'
+    displayName: 'Compilar projeto Skill4Green'
     inputs:
       command: 'build'
       arguments: '--configuration $(buildConfiguration)'
 
   - task: DotNetCoreCLI@2
-    displayName: 'Test'
+    displayName: 'Executar testes automatizados com XUnit'
     inputs:
       command: 'test'
       projects: '**/*Tests.csproj'
@@ -61,23 +61,21 @@ jobs:
       publishTestResults: true
 
   - task: PublishTestResults@2
-    displayName: 'Publicar Resultados de Teste'
+    displayName: 'Publicar resultados dos testes'
     inputs:
       testResultsFormat: 'VSTest'
       testResultsFiles: '**/*.trx'
       failTaskOnFailedTests: true
 
   - task: DotNetCoreCLI@2
-    displayName: 'Publish'
+    displayName: 'Gerar artefato da Skill4Green API'
     inputs:
       command: 'publish'
       publishWebProjects: true
       arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    env:
-      DB_CONNECTION: $(DB_CONNECTION)
 
   - task: PublishBuildArtifacts@1
-    displayName: 'Publicar Artefato'
+    displayName: 'Publicar artefato para Release'
     inputs:
       pathToPublish: '$(Build.ArtifactStagingDirectory)'
-      artifactName: 'app'
+      artifactName: 'skill4green-api'

@@ -28,6 +28,20 @@ Skill4Green representa o futuro do trabalho ao:
 
 ---
 
+## Arquitetura Macro – Skill4Green
+
+![Arquitetura Skill4Green](docs/arquitetura-skill4green.png)
+
+> Este diagrama representa a arquitetura da solução Skill4Green, dividida em dois blocos principais:
+
+- **Azure DevOps**: gerencia o ciclo de desenvolvimento com Azure Boards (tarefas e PRs), Azure Repos (código .NET), Pipeline de Build (compilação, testes e publicação de artefato) e Pipeline de Release (provisionamento da infraestrutura e deploy automático).
+
+- **Azure Resource Group**: agrupa os recursos da aplicação em nuvem, incluindo o Azure Web App (onde a API Skill4Green é hospedada), o Azure SQL Database (armazenamento das pontuações e recompensas) e o App Service Plan (plano de execução da aplicação).
+
+O fluxo mostra como o código é versionado, testado e implantado automaticamente, permitindo que o usuário acesse a API em produção com dados persistidos no banco.
+
+---
+
 ## Estrutura da API
 
 ### Versionamento
@@ -92,7 +106,7 @@ Todos os recursos retornam links navegáveis no padrão:
 
 ## Monitoramento e Observabilidade
 
-- Health Check: /health;
+- Health Check: rota /health (Retorna Healthy ou Unhealthy dependendo do estado atual da aplicação);
 - Logging com `ILogger<T>`;
 - Tracing com OpenTelemetry (`AddConsoleExporter`)
 
@@ -189,7 +203,7 @@ Inclui exemplos de requisição e resposta para todos os endpoints.
 
 ```json
 {
-  "nome": "Caio",
+  "nome": "caio123",
   "recompensaId": 1
 }
 ```
@@ -225,7 +239,7 @@ Inclui exemplos de requisição e resposta para todos os endpoints.
     "id": 1,
     "nome": "Copo reutilizável",
     "custoEcoCoins": 50,
-    "tipo": "Sustentável",
+    "tipo": "Sustentável"
   },
   "links": [
     { "rel": "self", "href": "/api/v1/recompensas/1", "method": "GET" },

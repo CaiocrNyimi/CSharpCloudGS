@@ -1,0 +1,12 @@
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\bin\Release\net9.0\Skill4Green.Domain.deps.json
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\bin\Release\net9.0\Skill4Green.Domain.dll
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\bin\Release\net9.0\Skill4Green.Domain.pdb
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\Skill4Green.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\Skill4Green.Domain.AssemblyInfoInputs.cache
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\Skill4Green.Domain.AssemblyInfo.cs
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\Skill4Green.Domain.csproj.CoreCompileInputs.cache
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\Skill4Green.Domain.sourcelink.json
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\Skill4Green.Domain.dll
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\refint\Skill4Green.Domain.dll
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\Skill4Green.Domain.pdb
+C:\Users\caioc\Desktop\CSharpCloudGS\Skill4Green.Domain\obj\Release\net9.0\ref\Skill4Green.Domain.dll

@@ -1,9 +1,10 @@
 #!/bin/bash
+set -euo pipefail
 
 # ============================
 # CONFIGURAÇÕES FIXAS
 # ============================
-RG="rg-azurewebapp"
+RG="rg-skill4green"
 LOCATION="brazilsouth"
 APP_PLAN="plan-skill4green"
 RUNTIME="dotnet:9"
@@ -84,4 +85,8 @@ sqlcmd -S "$SQL_SERVER.database.windows.net" \
   -U "$SQL_ADMIN" \
   -P "$SQL_PASSWORD" \
   -d "$SQL_DB" \
-  -i "scripts/script-bd.sql"
+  -i "scripts/script-bd.sql" \
+  -b -o sqlcmd-output.txt
+
+echo "Resultado da execução SQL:"
+cat sqlcmd-output.txt

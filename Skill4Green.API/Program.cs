@@ -104,4 +104,10 @@ app.MapControllers();
 // 🩺 Endpoint de Health Check
 app.MapHealthChecks("/health");
 
+app.MapGet("/nova-rota", () => Results.Text("Rota adicionada"))
+      .WithName("Rota Nova")
+      .WithTags("Health")
+      .Produces(StatusCodes.Status200OK);
+
+
 app.Run();

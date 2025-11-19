@@ -122,6 +122,10 @@
               "target": "Package",
               "version": "[1.13.0, )"
             },
+            "Oracle.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.23.26000, )"
+            },
             "Serilog.AspNetCore": {
               "target": "Package",
               "version": "[9.0.0, )"

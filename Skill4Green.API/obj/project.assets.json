@@ -6950,6 +6950,7 @@
       "OpenTelemetry.Extensions.Hosting >= 1.13.1",
       "OpenTelemetry.Instrumentation.AspNetCore >= 1.13.0",
       "OpenTelemetry.Instrumentation.Http >= 1.13.0",
+      "Oracle.EntityFrameworkCore >= 9.23.26000",
       "Serilog.AspNetCore >= 9.0.0",
       "Skill4Green.Application >= 1.0.0",
       "Skill4Green.Domain >= 1.0.0",
@@ -7080,6 +7081,10 @@
           "OpenTelemetry.Instrumentation.Http": {
             "target": "Package",
             "version": "[1.13.0, )"
+          },
+          "Oracle.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[9.23.26000, )"
           },
           "Serilog.AspNetCore": {
             "target": "Package",

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Skill4Green.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01fb4fbcb184c83b2c52a2eea6a27749589c1ca7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73fd50cfc89de12df507a3a68d32a1b827815850")]
 [assembly: System.Reflection.AssemblyProductAttribute("Skill4Green.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Skill4Green.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

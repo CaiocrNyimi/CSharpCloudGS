@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION");
 
 // 🔧 Configurações básicas
 builder.Services.AddControllers();
@@ -33,9 +32,11 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(xmlPath);
 });
 
-// 🔌 Banco de dados SQL Server
+// 🔌 Banco de dados Oracle
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<Skill4GreenDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseOracle(connectionString));
 
 // 🧩 AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingProfile));
